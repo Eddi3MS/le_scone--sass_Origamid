@@ -1,0 +1,24 @@
+footer {
+  padding-block: 10px;
+  background-color: $dark01;
+  @include box-shadow(0 0 0 10px $dark01);
+
+  .footer_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    @include device(s) {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  p {
+    color: $light01;
+    @include device(s) {
+      text-align: center;
+    }
+  }
+}

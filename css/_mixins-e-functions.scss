@@ -15,9 +15,10 @@ $font2: "Aref Ruqaa", serif;
 // border
 
 $border: 2px solid $dark01;
+$borderL: 10px solid $light02;
 
 @function em($pixel, $contexto: 16) {
-  @return $pixel / $contexto + "em";
+  @return $pixel / $contexto + em;
 }
 
 @mixin font-01($size) {
@@ -39,4 +40,10 @@ $border: 2px solid $dark01;
     font-size: em(24);
     line-height: em(30, 24);
   }
+}
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
 }

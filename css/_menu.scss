@@ -1,0 +1,49 @@
+.menu {
+  margin-block: 120px;
+
+  @include device(s) {
+    margin-block: 60px;
+  }
+}
+
+.menu-item {
+  margin-bottom: 60px;
+  h2 {
+    @include font-02(24);
+    margin-bottom: 1em;
+  }
+
+  li {
+    @include font-01(18);
+    line-height: em(35, 18);
+
+    span {
+      font-family: $font2;
+      color: $light02;
+      display: inline-block;
+      width: 70px;
+      margin-right: 10px;
+      text-align: right;
+      margin-left: -80px;
+
+      @include device(s) {
+        margin-left: 0;
+        width: auto;
+      }
+    }
+  }
+
+  img {
+    border-radius: 50%;
+    border: $borderL;
+    position: absolute;
+    right: 0;
+    @include device(l) {
+      margin-top: 20px;
+      right: 150px;
+    }
+    @include device(s) {
+      width: 120px;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 body {
   background: $light01;
-  border: 10px solid $light02;
+  border: $borderL;
   color: $dark01;
 
   @include device(s) {

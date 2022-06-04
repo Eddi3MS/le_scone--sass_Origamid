@@ -190,7 +190,7 @@ table {
 [class^=grid-] {
   float: left;
   min-height: 1px;
-  margin-inline: 10px;
+  margin-inline: calc(20px / 2);
 }
 @media screen and (max-width: 759px) {
   [class^=grid-] {
@@ -201,51 +201,51 @@ table {
 }
 
 .offset-1 {
-  margin-left: calc(8.3333333333% + 10px);
+  margin-left: calc(8.3333333333% + calc(20px / 2));
 }
 
 .offset-2 {
-  margin-left: calc(16.6666666667% + 10px);
+  margin-left: calc(16.6666666667% + calc(20px / 2));
 }
 
 .offset-3 {
-  margin-left: calc(25% + 10px);
+  margin-left: calc(25% + calc(20px / 2));
 }
 
 .offset-4 {
-  margin-left: calc(33.3333333333% + 10px);
+  margin-left: calc(33.3333333333% + calc(20px / 2));
 }
 
 .offset-5 {
-  margin-left: calc(41.6666666667% + 10px);
+  margin-left: calc(41.6666666667% + calc(20px / 2));
 }
 
 .offset-6 {
-  margin-left: calc(50% + 10px);
+  margin-left: calc(50% + calc(20px / 2));
 }
 
 .offset-7 {
-  margin-left: calc(58.3333333333% + 10px);
+  margin-left: calc(58.3333333333% + calc(20px / 2));
 }
 
 .offset-8 {
-  margin-left: calc(66.6666666667% + 10px);
+  margin-left: calc(66.6666666667% + calc(20px / 2));
 }
 
 .offset-9 {
-  margin-left: calc(75% + 10px);
+  margin-left: calc(75% + calc(20px / 2));
 }
 
 .offset-10 {
-  margin-left: calc(83.3333333333% + 10px);
+  margin-left: calc(83.3333333333% + calc(20px / 2));
 }
 
 .offset-11 {
-  margin-left: calc(91.6666666667% + 10px);
+  margin-left: calc(91.6666666667% + calc(20px / 2));
 }
 
 .offset-12 {
-  margin-left: calc(100% + 10px);
+  margin-left: calc(100% + calc(20px / 2));
 }
 
 @media screen and (max-width: 759px) {
@@ -303,14 +303,14 @@ img {
 
 p {
   font-family: "PT Mono", monospace;
-  font-size: "1.125em";
-  line-height: "1.6666666667em";
+  font-size: 1.125em;
+  line-height: 1.6666666667em;
 }
 
 .titulo {
   font-family: "PT Mono", monospace;
-  font-size: "1.125em";
-  line-height: "1.6666666667em";
+  font-size: 1.125em;
+  line-height: 1.6666666667em;
   text-transform: uppercase;
 }
 @media screen and (max-width: 759px) {
@@ -400,4 +400,164 @@ p {
 .intro-foto {
   border: 10px solid #cdc6b9;
   width: 100%;
+}
+
+.menu {
+  margin-block: 120px;
+}
+@media screen and (max-width: 759px) {
+  .menu {
+    margin-block: 60px;
+  }
+}
+
+.menu-item {
+  margin-bottom: 60px;
+}
+.menu-item h2 {
+  font-family: "Aref Ruqaa", serif;
+  font-size: 1.5em;
+  line-height: 1.25em;
+  margin-bottom: 1em;
+}
+.menu-item li {
+  font-family: "PT Mono", monospace;
+  font-size: 1.125em;
+  line-height: 1.6666666667em;
+  line-height: 1.9444444444em;
+}
+.menu-item li span {
+  font-family: "Aref Ruqaa", serif;
+  color: #cdc6b9;
+  display: inline-block;
+  width: 70px;
+  margin-right: 10px;
+  text-align: right;
+  margin-left: -80px;
+}
+@media screen and (max-width: 759px) {
+  .menu-item li span {
+    margin-left: 0;
+    width: auto;
+  }
+}
+.menu-item img {
+  border-radius: 50%;
+  border: 10px solid #cdc6b9;
+  position: absolute;
+  right: 0;
+}
+@media screen and (min-width: 1200px) {
+  .menu-item img {
+    margin-top: 20px;
+    right: 150px;
+  }
+}
+@media screen and (max-width: 759px) {
+  .menu-item img {
+    width: 120px;
+  }
+}
+
+.contato {
+  margin-block: 120px;
+}
+@media screen and (max-width: 759px) {
+  .contato {
+    margin-block: 60px;
+  }
+}
+.contato form label {
+  font-family: "PT Mono", monospace;
+  font-size: 1.125em;
+  line-height: 1.6666666667em;
+  display: block;
+}
+.contato form input[type=text],
+.contato form textarea {
+  font-family: "PT Mono", monospace;
+  font-size: 1.125em;
+  line-height: 1.6666666667em;
+  color: #2a2426;
+  width: 100%;
+  padding-inline: 5px;
+  height: 40px;
+  border: 2px solid #2a2426;
+  border-color: #988c77;
+  background-color: transparent;
+  margin-bottom: 1em;
+}
+.contato form input[type=text]:focus, .contato form input[type=text]:hover,
+.contato form textarea:focus,
+.contato form textarea:hover {
+  outline: none;
+  border-color: #cdc6b9;
+}
+.contato form textarea {
+  height: 120px;
+}
+.contato form .button {
+  font-family: "PT Mono", monospace;
+  font-size: 1.125em;
+  line-height: 1.6666666667em;
+  cursor: pointer;
+  color: #988c77;
+  border: 2px solid #2a2426;
+  text-transform: uppercase;
+  border-color: #988c77;
+  background-color: transparent;
+  display: block;
+  width: 200px;
+  padding-top: 5px;
+  box-shadow: 5px 5px 0 -2px #cdc6b9, 5px 5px 0 0 #988c77;
+  transition: 0.3s;
+}
+.contato form .button:hover {
+  box-shadow: 3px 3px 0 -2px #cdc6b9, 3px 3px 0 0 #988c77;
+}
+.contato .contato-info {
+  display: inline-block;
+  color: #988c77;
+  margin-block: 2em 3em;
+}
+@media screen and (min-width: 1200px) {
+  .contato .contato-info {
+    float: right;
+    text-align: right;
+    margin-top: -3em;
+  }
+}
+.contato .contato-mapa {
+  display: block;
+  box-shadow: 0 0 0 10px #988c77;
+  clear: both;
+}
+.contato .contato-mapa img {
+  width: 100%;
+}
+
+footer {
+  padding-block: 10px;
+  background-color: #2a2426;
+  box-shadow: 0 0 0 10px #2a2426;
+}
+footer .footer_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+@media screen and (max-width: 759px) {
+  footer .footer_container {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+footer p {
+  color: #edece4;
+}
+@media screen and (max-width: 759px) {
+  footer p {
+    text-align: center;
+  }
 }/*# sourceMappingURL=styles.css.map */
