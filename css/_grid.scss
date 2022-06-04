@@ -1,0 +1,120 @@
+// variables
+$cols: 12;
+$gutter: 20px;
+$l-device: 1200px;
+$m-device: 760px;
+$s-device: 480px;
+
+// mixin media-queries
+
+@mixin device($size) {
+  @if $size == l {
+    @media screen and (min-width: #{$l-device}) {
+      @content;
+    }
+  } @else if $size == m {
+    @media screen and (min-width: #{$m-device}) and (max-width: #{$l-device - 1} ) {
+      @content;
+    }
+  } @else {
+    @media screen and (max-width: #{$m-device - 1}) {
+      @content;
+    }
+  }
+}
+
+// grid function
+
+@function grid($col, $offset: false) {
+  $width: $col / $cols * 100 + "%";
+  $result: calc(#{$width} - #{$gutter});
+
+  @if $offset == offset {
+    $result: calc(#{$width} + #{$gutter / 2});
+  }
+
+  @return $result;
+}
+
+// grid class generation
+
+@for $i from 1 through $cols {
+  .grid-#{$i} {
+    width: grid($i);
+  }
+}
+
+// mixin grid structure
+
+@mixin grid-structure {
+  float: left;
+  min-height: 1px;
+  margin-inline: $gutter / 2;
+  @include device(s) {
+    width: 100%;
+    float: none;
+    margin-inline: 0;
+  }
+}
+
+[class^="grid-"] {
+  @include grid-structure;
+}
+
+// offset class generation
+
+@for $i from 1 through $cols {
+  .offset-#{$i} {
+    margin-left: grid($i, offset);
+    @extend %offset;
+  }
+}
+
+@include device(s) {
+  %offset {
+    margin-left: 0;
+  }
+}
+
+// mixin clearfix -- float :(
+
+@mixin clearfix {
+  &::after,
+  &::before {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// mixin container
+
+@mixin container {
+  max-width: $l-device;
+  margin-inline: auto;
+  position: relative;
+  @include device(m) {
+    max-width: $m-device;
+  }
+  @include device(s) {
+    max-width: $s-device;
+    padding-inline: 10px;
+  }
+  @include clearfix;
+}
+
+.container {
+  @include container;
+}
+
+@mixin row {
+  position: relative;
+  margin-inline: calc(#{-$gutter} / 2);
+  @include device(s) {
+    margin-inline: 0;
+  }
+}
+
+.row {
+  @include row;
+}

@@ -1,121 +1,42 @@
-// variables
-$cols: 12;
-$gutter: 20px;
-$l-device: 1200px;
-$m-device: 760px;
-$s-device: 480px;
+// Cores
 
-// mixin media-queries
+$light01: #edece4;
+$light02: #cdc6b9;
+$light03: #988c77;
 
-@mixin device($size) {
-  @if $size == l {
-    @media screen and (min-width: #{$l-device}) {
-      @content;
-    }
-  } @else if $size == m {
-    @media screen and (min-width: #{$m-device}) and (max-width: #{$l-device - 1} ) {
-      @content;
-    }
-  } @else {
-    @media screen and (max-width: #{$m-device - 1}) {
-      @content;
-    }
+$dark01: #2a2426;
+$success: #1ab912;
+
+// fonts
+
+$font1: "PT Mono", monospace;
+$font2: "Aref Ruqaa", serif;
+
+// border
+
+$border: 2px solid $dark01;
+
+@function em($pixel, $contexto: 16) {
+  @return $pixel / $contexto + "em";
+}
+
+@mixin font-01($size) {
+  font-family: $font1;
+
+  @if $size == 18 {
+    font-size: em(18);
+    line-height: em(30, 18);
   }
 }
 
-// grid function
+@mixin font-02($size) {
+  font-family: $font2;
 
-@function grid($col, $offset: false) {
-  $width: $col / $cols * 100 + "%";
-  $result: calc(#{$width} - #{$gutter});
-
-  @if $offset == offset {
-    $result: calc(#{$width} + #{$gutter / 2});
+  @if $size == 18 {
+    font-size: em(18);
+    line-height: em(30, 18);
+  } @else if $size == 24 {
+    font-size: em(24);
+    line-height: em(30, 24);
   }
-
-  @return $result;
-}
-
-// grid class generation
-
-@for $i from 1 through $cols {
-  .grid-#{$i} {
-    width: grid($i);
-  }
-}
-
-// mixin grid structure
-
-@mixin grid-structure {
-  float: left;
-  min-height: 1px;
-  margin-inline: $gutter / 2;
-  @include device(s) {
-    width: 100%;
-    float: none;
-    margin-inline: 0;
-  }
-}
-
-[class^="grid-"] {
-  @include grid-structure;
-}
-
-// offset class generation
-
-@for $i from 1 through $cols {
-  .offset-#{$i} {
-    margin-left: grid($i, offset);
-    @extend %offset;
-  }
-}
-
-@include device(s) {
-  %offset {
-    margin-left: 0;
-  }
-}
-
-// mixin clearfix -- float :(
-
-@mixin clearfix {
-  &::after,
-  &::before {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-
-// mixin container
-
-@mixin container {
-  max-width: $l-device;
-  margin-inline: auto;
-  position: relative;
-  @include device(m) {
-    max-width: $m-device;
-  }
-  @include device(s) {
-    max-width: $s-device;
-    padding-inline: 10px;
-  }
-  @include clearfix;
-}
-
-.container {
-  @include container;
-  background: #ccc;
-}
-
-@mixin row {
-  position: relative;
-  margin-inline: calc(-$gutter / 2);
-  @include device(s) {
-    margin-inline: 0;
-  }
-}
-
-.row {
-  @include row;
 }
